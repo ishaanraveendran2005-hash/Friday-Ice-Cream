@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FRIDAY Ice Cream — Freshly Made in Sai Baba Colony</title>
+<meta name="description" content="FRIDAY Ice Cream in Sai Baba Colony, Coimbatore — freshly made ice cream, gelato-style scoops, sorbets and rotating flavours." />
+<style>
+  :root{
+    --ink:#171717;
+    --soft-ink:#4d4d4d;
+    --paper:#fbfaf6;
+    --cream:#f3efe7;
+    --milk:#fffdf8;
+    --line:#e6dfd5;
+    --orange:#ff3b1f;
+    --orange-2:#ff6a3d;
+    --blue:#cfeaff;
+    --pink:#f5b4c9;
+    --lemon:#f7f0b9;
+    --choco:#8a4f37;
+    --hazel:#c99a68;
+    --shadow:0 28px 90px rgba(18,18,18,.18);
+    --soft-shadow:0 16px 50px rgba(29,29,29,.12);
+    --radius:32px;
+    --ease:cubic-bezier(.2,.8,.2,1);
+    --p:0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;overflow-x:hidden}
+  body.menu-open{overflow:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+  .grain{position:fixed;inset:0;pointer-events:none;z-index:120;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 360 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='360' height='360' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+  .container{width:min(1180px, calc(100% - 34px));margin:auto}
+  .topbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:110;width:min(1180px, calc(100% - 24px));display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 12px;border-radius:999px;background:rgba(255,253,248,.68);border:1px solid rgba(255,255,255,.78);backdrop-filter:blur(18px);box-shadow:0 18px 45px rgba(0,0,0,.1)}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:.08em}.brand-mark{width:44px;height:44px;border-radius:50%;background:#171717;color:#fff;display:grid;place-items:center;font-size:12px;letter-spacing:.08em;box-shadow:inset 0 -5px 0 rgba(255,255,255,.12)}
+  .nav{display:flex;align-items:center;gap:5px}.nav a,.nav button{border:0;background:transparent;color:var(--ink);font-weight:850;border-radius:999px;padding:12px 14px;cursor:pointer}.nav a:hover,.nav button:hover{background:#fff}.nav .order{background:var(--orange);color:white;box-shadow:0 12px 28px rgba(255,59,31,.28)}
+  .intro{height:230vh;position:relative;background:#0e0e0e}.intro-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center}.intro-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1 + var(--p) * 1.35)) translateY(calc(var(--p) * -4vh));filter:saturate(calc(1 + var(--p) * .18)) contrast(calc(1 + var(--p) * .12));transition:filter .08s linear;transform-origin:50% 43%}.intro:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.22),rgba(0,0,0,.12) 38%,rgba(0,0,0,.7));pointer-events:none}.intro-copy{position:relative;z-index:2;width:min(1120px, calc(100% - 34px));margin:auto;color:white;align-self:end;padding-bottom:9vh;opacity:calc(1 - var(--p) * 1.15);transform:translateY(calc(var(--p) * -34px));text-shadow:0 10px 35px rgba(0,0,0,.38)}
+  .fresh-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(12px);font-weight:900}.fresh-badge i{width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 8px rgba(255,59,31,.22)}
+  .intro h1{font-size:clamp(70px,15vw,210px);line-height:.75;letter-spacing:.18em;margin:26px 0 16px;text-transform:uppercase;font-weight:1000}.intro p{font-size:clamp(19px,2vw,28px);line-height:1.5;max-width:720px;margin:0;color:#fff4ed}.scroll-cue{position:absolute;right:28px;bottom:28px;z-index:3;color:white;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:999px;background:rgba(0,0,0,.28);backdrop-filter:blur(12px);opacity:calc(1 - var(--p) * 1.3)}.scroll-cue span{width:28px;height:44px;border:2px solid rgba(255,255,255,.72);border-radius:999px;position:relative}.scroll-cue span:after{content:"";position:absolute;top:8px;left:50%;width:5px;height:5px;background:white;border-radius:50%;transform:translateX(-50%);animation:wheel 1.4s infinite}@keyframes wheel{to{top:24px;opacity:0}}
+  main{position:relative;background:var(--paper);z-index:2}.hero{min-height:100vh;padding:130px 0 100px;background:radial-gradient(circle at 20% 8%,rgba(255,59,31,.16),transparent 30%),radial-gradient(circle at 83% 20%,rgba(207,234,255,.65),transparent 30%),linear-gradient(180deg,#fffdf8,#f3efe7);overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:46px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--orange);padding:10px 13px;border:1px solid rgba(255,59,31,.18);border-radius:999px;background:#fff}.title{font-size:clamp(62px,9vw,138px);line-height:.82;letter-spacing:-.065em;margin:20px 0;font-weight:1000;text-wrap:balance}.title em{font-family:Georgia,serif;font-weight:500;font-style:italic;color:var(--orange);letter-spacing:-.08em}.lede{font-size:clamp(18px,1.8vw,23px);line-height:1.65;color:var(--soft-ink);max-width:690px}.cta-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}.btn{border:0;border-radius:999px;padding:16px 21px;font-weight:950;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:.34s var(--ease);min-height:48px}.btn.primary{background:#171717;color:#fff;box-shadow:0 18px 38px rgba(0,0,0,.18)}.btn.orange{background:var(--orange);color:#fff;box-shadow:0 18px 38px rgba(255,59,31,.24)}.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn:hover{transform:translateY(-3px) scale(1.015)}
+  .sundae-stage{min-height:640px;position:relative;display:grid;place-items:center;perspective:1300px}.glow-line{position:absolute;left:0;right:0;top:50%;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);box-shadow:0 0 28px rgba(255,59,31,.75);animation:pulse 2.8s infinite}@keyframes pulse{50%{opacity:.35;filter:blur(1px)}}.scoop-stack{position:relative;width:min(470px,88vw);height:560px;transform-style:preserve-3d;animation:float 6s var(--ease) infinite}@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-18px) rotate(1deg)}}.scoop{position:absolute;left:50%;width:245px;height:165px;border-radius:50% 50% 46% 54% / 58% 60% 42% 45%;transform:translateX(-50%);box-shadow:inset -24px -28px 45px rgba(0,0,0,.12),0 25px 40px rgba(0,0,0,.14)}.scoop.one{top:60px;background:radial-gradient(circle at 35% 28%,#fff 0 8%,transparent 9%),linear-gradient(135deg,var(--pink),#f8dce4)}.scoop.two{top:175px;background:radial-gradient(circle at 38% 30%,#fff 0 7%,transparent 8%),linear-gradient(135deg,var(--lemon),#fff8cf);width:290px}.scoop.three{top:300px;background:radial-gradient(circle at 38% 30%,#fff 0 7%,transparent 8%),linear-gradient(135deg,var(--choco),#d3a078);width:320px}.cup{position:absolute;left:50%;bottom:35px;width:300px;height:190px;transform:translateX(-50%) rotateX(8deg);background:linear-gradient(180deg,#fff,#f0ece4);border:1px solid #ddd2c5;border-radius:20px 20px 80px 80px;box-shadow:var(--shadow);display:grid;place-items:center;overflow:hidden}.cup:before{content:"FRIDAY";font-weight:1000;letter-spacing:.3em;color:#111;font-size:24px}.spark{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 10px rgba(255,59,31,.1)}.spark.s1{left:12%;top:20%;animation:pop 2s infinite}.spark.s2{right:10%;top:36%;animation:pop 2.4s infinite .4s}.spark.s3{left:22%;bottom:26%;animation:pop 2.8s infinite .8s}@keyframes pop{50%{transform:scale(1.8);opacity:.42}}
+  section{padding:110px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:1000;color:var(--orange)}.section-title{font-size:clamp(42px,6vw,86px);line-height:.9;letter-spacing:-.06em;margin:9px 0;font-weight:1000;text-wrap:balance}.section-title em{font-family:Georgia,serif;color:var(--orange);font-weight:500}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:stretch}.photo-card{border-radius:40px;overflow:hidden;box-shadow:var(--shadow);min-height:560px;position:relative;background:#ddd}.photo-card img{width:100%;height:100%;object-fit:cover;transition:1s var(--ease)}.photo-card:hover img{transform:scale(1.06)}.photo-label{position:absolute;left:22px;bottom:22px;background:rgba(255,253,248,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:12px 15px;font-weight:950}.story-cards{display:grid;gap:18px}.story-card{padding:30px;border-radius:32px;background:#fff;border:1px solid var(--line);box-shadow:var(--soft-shadow);transition:.35s var(--ease);transform-style:preserve-3d}.story-card:hover{transform:translateY(-6px) rotateX(4deg)}.story-card h3{font-size:34px;letter-spacing:-.04em;line-height:1;margin:0 0 12px}.story-card p{line-height:1.7;color:var(--soft-ink);margin:0}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}.tag{font-size:12px;font-weight:900;border-radius:999px;background:#f4eee5;border:1px solid var(--line);padding:8px 11px}
+  .flavours{background:#111;color:#fff;position:relative;overflow:hidden}.flavours:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 25%,rgba(255,59,31,.25),transparent 28%),radial-gradient(circle at 85% 15%,rgba(207,234,255,.22),transparent 28%)}.flavours .container{position:relative;z-index:1}.cabinet-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:stretch}.cabinet-photo{position:relative;min-height:620px;border-radius:42px;overflow:hidden;box-shadow:0 38px 110px rgba(0,0,0,.42);background:#222}.cabinet-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.8s var(--ease)}.cabinet-photo:hover img{transform:scale(1.05)}.cabinet-photo:after{content:"";position:absolute;left:0;right:0;top:34%;height:3px;background:linear-gradient(90deg,transparent,var(--orange),transparent);box-shadow:0 0 34px rgba(255,59,31,.85)}.featured-flavour{position:absolute;left:24px;right:24px;bottom:24px;padding:24px;border-radius:28px;background:linear-gradient(180deg,rgba(17,17,17,.2),rgba(17,17,17,.78));backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16)}.featured-flavour h3{font-size:48px;letter-spacing:-.05em;line-height:.95;margin:0 0 10px}.featured-flavour p{color:#f7ddd6;line-height:1.6;max-width:560px}.flavour-panel{border-radius:42px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);padding:28px;box-shadow:0 28px 80px rgba(0,0,0,.25)}.flavour-panel h3{font-size:44px;letter-spacing:-.05em;line-height:.95;margin:4px 0 14px}.flavour-panel p{color:#dedede;line-height:1.7}.flavour-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.flavour-card{border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:16px;background:rgba(255,255,255,.06);cursor:pointer;text-align:left;color:white;transition:.25s var(--ease);min-height:96px}.flavour-card:hover,.flavour-card.active{transform:translateY(-4px);background:rgba(255,255,255,.13)}.flavour-card b{display:block;font-size:17px;margin-bottom:5px}.flavour-card span{font-size:13px;color:#d8d8d8;line-height:1.4}.flavour-dot{display:inline-block;width:13px;height:13px;border-radius:50%;margin-right:8px;vertical-align:-1px;background:var(--dot,#fff)}
+  .menu-section{background:linear-gradient(180deg,#fffdf8,#f2eee7);padding-bottom:130px}.freezer{position:relative;border-radius:42px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;min-height:560px}.freezer-top{padding:28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:18px;background:linear-gradient(180deg,#fff,#f5f1e9)}.freezer-top h3{font-size:46px;letter-spacing:-.05em;margin:0}.freezer-body{display:grid;grid-template-columns:1fr 1fr;gap:0}.drawer{position:relative;min-height:420px;padding:26px;border-right:1px solid var(--line);overflow:hidden}.drawer:last-child{border-right:0}.drawer-cover{position:absolute;inset:0;background:linear-gradient(135deg,#171717,#3e3e3e);color:white;display:grid;place-items:center;text-align:center;padding:30px;z-index:2;transition:.75s var(--ease);transform-origin:top}.freezer.open .drawer-cover{transform:translateY(-104%)}.drawer-cover h4{font-size:52px;letter-spacing:-.05em;margin:0}.drawer-cover p{color:#eee;line-height:1.6}.menu-list{display:grid;gap:12px}.menu-item{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px;border-radius:22px;background:#fffdf8;border:1px solid var(--line)}.menu-item h4{margin:0 0 4px;font-size:17px}.menu-item p{margin:0;color:var(--soft-ink);font-size:13px;line-height:1.45}.menu-pill{font-size:12px;font-weight:950;color:#fff;background:var(--orange);border-radius:999px;padding:7px 10px;white-space:nowrap}.menu-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .gallery{background:var(--cream)}.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}.gallery-card{position:relative;border-radius:36px;overflow:hidden;box-shadow:var(--soft-shadow);min-height:500px;background:#ddd}.gallery-card.small{min-height:240px}.gallery-card img{width:100%;height:100%;object-fit:cover;transition:1s var(--ease)}.gallery-card:hover img{transform:scale(1.07)}.gallery-stack{display:grid;gap:22px}.caption{position:absolute;left:18px;bottom:18px;padding:12px 14px;border-radius:999px;background:rgba(255,253,248,.76);backdrop-filter:blur(12px);font-weight:950;border:1px solid rgba(255,255,255,.7)}
+  .visit{background:#101010;color:#fff;position:relative;overflow:hidden}.visit:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,16,16,.92),rgba(16,16,16,.58)),url('friday-ice-cream-assets/friday-storefront.png') center/cover fixed;opacity:.98}.visit .container{position:relative;z-index:1}.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.visit-card{padding:34px;border-radius:36px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(12px)}.visit-card h3{font-size:54px;letter-spacing:-.055em;line-height:.95;margin:8px 0 16px}.visit-card p{line-height:1.7;color:#e5e5e5}.info-row{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14)}.info-row b{min-width:105px;color:#ffb4a6}.map-card{position:relative;min-height:440px;border-radius:36px;overflow:hidden;background:radial-gradient(circle at 30% 30%,rgba(255,59,31,.38),transparent 24%),linear-gradient(135deg,#292929,#111);box-shadow:0 38px 100px rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.16)}.map-card:before{content:"";position:absolute;inset:30px;border-radius:30px;background:linear-gradient(90deg,transparent 48%,rgba(255,255,255,.14) 49% 51%,transparent 52%),linear-gradient(0deg,transparent 48%,rgba(255,255,255,.12) 49% 51%,transparent 52%);background-size:110px 110px}.pin{position:absolute;left:52%;top:35%;width:34px;height:34px;border-radius:50% 50% 50% 0;background:var(--orange);transform:rotate(-45deg);box-shadow:0 18px 35px rgba(0,0,0,.4)}.pin:after{content:"";position:absolute;inset:10px;border-radius:50%;background:#fff}.map-copy{position:absolute;left:26px;right:26px;bottom:26px;padding:24px;border-radius:28px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(12px)}.map-copy b{display:block;color:#ffb4a6;margin-bottom:8px}.map-copy p{margin:0 0 14px;color:#eee;line-height:1.55}
+  footer{padding:44px 0;background:#050505;color:#d8d8d8}.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.foot b{color:#fff;letter-spacing:.08em}.foot p{max-width:620px;line-height:1.6;color:#c8c8c8;margin:0}.qr{display:inline-grid;grid-template-columns:repeat(5,10px);gap:3px;background:#fff;padding:10px;border-radius:10px}.qr i{width:10px;height:10px;background:#111}.qr i:nth-child(3n){background:var(--orange)}
+  .floating-menu{position:fixed;right:18px;bottom:18px;z-index:105;border:0;border-radius:999px;padding:15px 19px;font-weight:1000;background:var(--orange);color:#fff;box-shadow:0 18px 40px rgba(255,59,31,.3);cursor:pointer}.menu-modal{position:fixed;inset:0;z-index:130;background:rgba(10,10,10,.82);backdrop-filter:blur(14px);display:none;padding:20px}.menu-open .menu-modal{display:grid;place-items:center}.modal-card{width:min(1050px,100%);max-height:92vh;overflow:auto;border-radius:34px;background:var(--paper);box-shadow:0 38px 110px rgba(0,0,0,.45)}.modal-head{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 22px;background:rgba(251,250,246,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.modal-head b{font-size:18px}.close{width:44px;height:44px;border:0;border-radius:50%;background:#111;color:#fff;font-size:24px;cursor:pointer}.modal-body{padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:18px}.modal-section{padding:22px;border-radius:28px;background:#fff;border:1px solid var(--line)}.modal-section h3{font-size:34px;letter-spacing:-.05em;margin:0 0 16px}.full-width{grid-column:1/-1}
+  .reveal{opacity:1;transform:none;transition:.8s var(--ease)}.reveal.visible{opacity:1;transform:none}
+  @media(max-width:900px){.nav a{display:none}.hero-grid,.split,.cabinet-grid,.freezer-body,.gallery-grid,.visit-grid,.modal-body{grid-template-columns:1fr}.intro h1{font-size:64px}.intro-copy{padding-bottom:13vh}.hero{padding-top:110px}.sundae-stage{min-height:520px}.scoop-stack{scale:.82}.section-head{display:block}.photo-card,.cabinet-photo{min-height:470px}.drawer{border-right:0;border-bottom:1px solid var(--line)}.flavour-list{grid-template-columns:1fr}.foot{display:block}.foot .qr{margin-top:18px}.title{font-size:68px}.section-title{font-size:48px}.scroll-cue{left:18px;right:auto}}
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.intro-img{transform:none!important}.intro-copy,.scroll-cue{opacity:1!important}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<nav class="topbar">
+  <a class="brand" href="#top"><span class="brand-mark">FRI</span><span>FRIDAY</span></a>
+  <div class="nav"><a href="#story">Story</a><a href="#flavours">Flavours</a><a href="#menu">Menu</a><a href="#visit">Visit</a><button class="order" onclick="openMenu()">Open cabinet</button></div>
+</nav>
+<section class="intro" id="top" aria-label="Friday Ice Cream storefront opening">
+  <div class="intro-pin">
+    <img class="intro-img" src="friday-ice-cream-assets/friday-storefront.png" alt="FRIDAY Ice Cream storefront in Sai Baba Colony" />
+    <div class="intro-copy">
+      <span class="fresh-badge"><i></i> ice cream, freshly made</span>
+      <h1>FRIDAY</h1>
+      <p>Scroll into Coimbatore’s first gelateria — a clean white storefront, a glowing orange line, and a cabinet full of fresh scoops.</p>
+    </div>
+    <div class="scroll-cue"><span></span>Scroll to enter</div>
+  </div>
+</section>
+<main>
+  <section class="hero reveal">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Sai Baba Colony · Coimbatore</span>
+        <h2 class="title">fresh scoops,<br><em>made</em><br>for today.</h2>
+        <p class="lede">FRIDAY is a minimal, modern ice cream shop serving freshly made gelato-style scoops, sorbets and rotating flavours from a bright neighbourhood store in Sai Baba Colony.</p>
+        <div class="cta-row"><a class="btn orange" href="#flavours">Explore flavours</a><button class="btn primary" onclick="openMenu()">Open today’s cabinet</button><a class="btn ghost" target="_blank" href="https://www.instagram.com/fridayicecreamcbe/">Instagram</a></div>
+      </div>
+      <div class="sundae-stage" aria-hidden="true">
+        <div class="glow-line"></div>
+        <div class="scoop-stack">
+          <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span>
+          <div class="scoop one"></div><div class="scoop two"></div><div class="scoop three"></div><div class="cup"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="story" class="reveal">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">Freshly made</span><h2 class="section-title">A small shop<br>with a bright chill.</h2></div><p class="lede">White walls, clean counters, orange highlights and a glass cabinet that lets the flavours do the talking.</p></div>
+      <div class="split">
+        <div class="photo-card"><img src="friday-ice-cream-assets/friday-storefront.png" alt="FRIDAY Ice Cream cafe exterior" /><div class="photo-label">FRIDAY · Sai Baba Colony</div></div>
+        <div class="story-cards">
+          <article class="story-card"><h3>Made fresh</h3><p>Small-batch scoops with a rotating cabinet, soft textures and flavours that feel ready for the day.</p><div class="tags"><span class="tag">Fresh batches</span><span class="tag">Gelato-style</span><span class="tag">Sorbets</span></div></article>
+          <article class="story-card"><h3>Minimal, clean, memorable</h3><p>A crisp white space, a glowing orange line and a simple counter create a look that is instantly recognisable.</p><div class="tags"><span class="tag">White interiors</span><span class="tag">Orange glow</span><span class="tag">Glass cabinet</span></div></article>
+          <article class="story-card"><h3>Quick treat or slow seat</h3><p>Step in for a scoop, take a seat outside, or bring friends for a full cabinet tasting.</p><div class="tags"><span class="tag">Scoops</span><span class="tag">Takeaway</span><span class="tag">Seating</span></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="flavours reveal" id="flavours">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">The cabinet</span><h2 class="section-title">Cold colour,<br><em>warm glow.</em></h2></div><p class="lede" style="color:#dedede">Pick a flavour from the cabinet and watch the counter shift around it.</p></div>
+      <div class="cabinet-grid">
+        <div class="cabinet-photo"><img src="friday-ice-cream-assets/friday-gelato-case.png" alt="FRIDAY ice cream cabinet with freshly made flavours" /><div class="featured-flavour"><h3 id="flavourTitle">Raspberry</h3><p id="flavourText">Bright, smooth and berry-forward — the kind of scoop that looks as good as it tastes.</p><button class="btn orange" onclick="openMenu()">View full cabinet</button></div></div>
+        <aside class="flavour-panel"><span class="kicker">Today’s mood</span><h3>Choose your scoop.</h3><p>Fruit sorbets, creamy classics and nutty favourites rotate through the cabinet. Tap a flavour to change the spotlight.</p><div class="flavour-list" id="flavourList"></div></aside>
+      </div>
+    </div>
+  </section>
+  <section class="menu-section reveal" id="menu">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">Menu</span><h2 class="section-title">Open the<br>freezer drawer.</h2></div><p class="lede">The cabinet stays calm until you open it. Browse visible favourites, sorbets and creamy rotations.</p></div>
+      <div class="freezer" id="freezer">
+        <div class="freezer-top"><h3>Today’s cabinet</h3><button class="btn orange" onclick="toggleFreezer()">Open / close</button></div>
+        <div class="freezer-body">
+          <div class="drawer"><div class="drawer-cover"><div><h4>Creamy</h4><p>Open for soft, rich scoops.</p></div></div><div class="menu-list" id="creamList"></div></div>
+          <div class="drawer"><div class="drawer-cover"><div><h4>Fruit</h4><p>Open for bright sorbets and fruit scoops.</p></div></div><div class="menu-list" id="fruitList"></div></div>
+        </div>
+      </div>
+      <div class="menu-actions"><button class="btn primary" onclick="openMenu()">Full cabinet view</button><a class="btn ghost" href="#visit">Plan a visit</a></div>
+    </div>
+  </section>
+  <section class="gallery reveal">
+    <div class="container">
+      <div class="section-head"><div><span class="kicker">Inside Friday</span><h2 class="section-title">White space,<br>orange light.</h2></div><p class="lede">A clean storefront and a glowing counter make the shop feel fresh before the first scoop.</p></div>
+      <div class="gallery-grid">
+        <div class="gallery-card"><img src="friday-ice-cream-assets/friday-storefront.png" alt="FRIDAY Ice Cream outdoor seating and storefront" /><div class="caption">Minimal storefront</div></div>
+        <div class="gallery-stack"><div class="gallery-card small"><img src="friday-ice-cream-assets/friday-gelato-case.png" alt="Fresh ice cream case" /><div class="caption">Fresh cabinet</div></div><div class="gallery-card small"><img src="friday-ice-cream-assets/friday-storefront.png" alt="Friday exterior close-up" /><div class="caption">Ice cream, freshly made</div></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="visit reveal" id="visit">
+    <div class="container visit-grid">
+      <div class="visit-card"><span class="kicker">Visit</span><h3>FRIDAY Ice Cream, Sai Baba Colony</h3><p>Drop by for freshly made scoops, fruit sorbets and rotating cabinet flavours in a clean, modern neighbourhood space.</p><div class="info-row"><b>Area</b><span>Sai Baba Colony, Coimbatore</span></div><div class="info-row"><b>Instagram</b><span><a target="_blank" href="https://www.instagram.com/fridayicecreamcbe/">@fridayicecreamcbe</a></span></div><div class="info-row"><b>Known for</b><span>Ice cream, freshly made</span></div><div class="cta-row"><a class="btn orange" target="_blank" href="https://www.instagram.com/fridayicecreamcbe/">DM on Instagram</a><a class="btn ghost" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Friday%20Ice%20Cream%20Sai%20Baba%20Colony%20Coimbatore">Open maps</a></div></div>
+      <div class="map-card"><span class="pin"></span><div class="map-copy"><b>Sai Baba Colony, Coimbatore</b><p>Search FRIDAY Ice Cream and follow the orange glow.</p><a class="btn orange" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Friday%20Ice%20Cream%20Sai%20Baba%20Colony%20Coimbatore">Navigate</a></div></div>
+    </div>
+  </section>
+</main>
+<footer><div class="container foot"><b>FRIDAY</b><p>Ice cream, freshly made. Gelato-style scoops, sorbets and rotating flavours in Sai Baba Colony, Coimbatore.</p><div class="qr" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></footer>
+<button class="floating-menu" onclick="openMenu()">Cabinet</button>
+<div class="menu-modal" role="dialog" aria-modal="true" aria-label="FRIDAY full cabinet menu">
+  <div class="modal-card"><div class="modal-head"><b>FRIDAY — full cabinet</b><button class="close" onclick="closeMenu()">×</button></div><div class="modal-body"><div class="modal-section"><h3>Creamy scoops</h3><div id="modalCream"></div></div><div class="modal-section"><h3>Fruit & sorbet</h3><div id="modalFruit"></div></div><div class="modal-section full-width"><h3>How to order</h3><p class="lede">Choose your flavour at the counter, ask what is freshly churned today, and pair your scoop with the mood you came in for — bright fruit, deep chocolate or something nutty and smooth.</p></div></div></div>
+</div>
+<script>
+const flavours=[
+  {name:'Raspberry',type:'fruit',tone:'#f2a8c0',desc:'Bright berry flavour with a smooth, fresh finish.'},
+  {name:'Lemon Sorbet',type:'fruit',tone:'#f7f0b9',desc:'Clean, citrusy and refreshing — perfect for a hot Coimbatore afternoon.'},
+  {name:'Strawberry Cheesecake',type:'cream',tone:'#f6d8df',desc:'Creamy strawberry with a dessert-like cheesecake note.'},
+  {name:'Sweet Chocolate',type:'cream',tone:'#a8684a',desc:'Soft chocolate comfort with a rich, rounded texture.'},
+  {name:'Hazelnut',type:'cream',tone:'#c99a68',desc:'Nutty, smooth and quietly indulgent.'},
+  {name:'Chocolate',type:'cream',tone:'#70412f',desc:'Deep cocoa flavour for classic chocolate lovers.'},
+  {name:'Honeycomb',type:'cream',tone:'#e1b45f',desc:'Golden, crunchy-sweet and made for a second spoon.'},
+  {name:'Vanilla Bean',type:'cream',tone:'#f5ead0',desc:'Simple, creamy and clean — the timeless scoop.'}
+];
+function flavourCard(f,i){return `<button class="flavour-card ${i===0?'active':''}" data-index="${i}" style="--dot:${f.tone}"><b><span class="flavour-dot"></span>${f.name}</b><span>${f.desc}</span></button>`}
+function menuItem(f){return `<div class="menu-item"><div><h4>${f.name}</h4><p>${f.desc}</p></div><span class="menu-pill">${f.type==='fruit'?'sorbet':'scoop'}</span></div>`}
+function render(){
+  document.getElementById('flavourList').innerHTML=flavours.map(flavourCard).join('');
+  document.getElementById('creamList').innerHTML=flavours.filter(f=>f.type==='cream').map(menuItem).join('');
+  document.getElementById('fruitList').innerHTML=flavours.filter(f=>f.type==='fruit').map(menuItem).join('');
+  document.getElementById('modalCream').innerHTML=flavours.filter(f=>f.type==='cream').map(menuItem).join('');
+  document.getElementById('modalFruit').innerHTML=flavours.filter(f=>f.type==='fruit').map(menuItem).join('');
+  document.querySelectorAll('.flavour-card').forEach(btn=>btn.addEventListener('click',()=>selectFlavour(+btn.dataset.index)));
+}
+function selectFlavour(i){
+  const f=flavours[i];
+  document.getElementById('flavourTitle').textContent=f.name;
+  document.getElementById('flavourText').textContent=f.desc;
+  document.querySelector('.scoop.one').style.background=`radial-gradient(circle at 35% 28%,#fff 0 8%,transparent 9%),linear-gradient(135deg,${f.tone},#fff)`;
+  document.querySelectorAll('.flavour-card').forEach((b,idx)=>b.classList.toggle('active',idx===i));
+}
+function toggleFreezer(){document.getElementById('freezer').classList.toggle('open')}
+function openMenu(){document.body.classList.add('menu-open')}
+function closeMenu(){document.body.classList.remove('menu-open')}
+function updateIntro(){
+  const intro=document.querySelector('.intro');
+  const max=intro.offsetHeight-window.innerHeight;
+  const p=Math.max(0,Math.min(1,window.scrollY/max));
+  document.documentElement.style.setProperty('--p',p.toFixed(4));
+}
+window.addEventListener('scroll',updateIntro,{passive:true});
+window.addEventListener('resize',updateIntro);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu(); if(e.key.toLowerCase()==='m')openMenu()});
+document.querySelectorAll('.story-card,.flavour-panel').forEach(card=>{card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`rotateX(${y*-5}deg) rotateY(${x*5}deg) translateY(-5px)`});card.addEventListener('mouseleave',()=>card.style.transform='')});
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+render();updateIntro();setTimeout(()=>document.getElementById('freezer').classList.add('open'),900);
+</script>
+</body>
+</html>
